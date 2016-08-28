@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/david1983/torrfinder/issues"
   },
-  "homepage": "https://github.com/david1983/torrfinder#readme"
+  "homepage": "https://github.com/david1983/torrfinder#readme",
+  "dependencies": {
+    "express": "^4.14.0",
+    "torrequest": "0.0.2"
+  }
 }
