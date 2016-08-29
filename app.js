@@ -3,13 +3,12 @@ var config = require('config');
 var exec = require('child_process').exec;
 console.log('HOSTNAME: ' + config.util.getEnv('HOSTNAME'));
 
-function restartT(cb){
+function restartT(){
 exec(config.app.restartScript, function( error, stdout, stderr) 
    {
        if ( error != null ) {
             console.log(stderr);        
-       }
-       cb()
+       }       
    });
 }
 
