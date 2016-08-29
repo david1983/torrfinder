@@ -1,6 +1,7 @@
 var torRequest = require("torrequest");
 var config = require('config');
 var exec = require('child_process').exec;
+console.log('HOSTNAME: ' + config.util.getEnv('HOSTNAME'));
 
 function restartT(cb){
 exec(config.app.restartScript, function( error, stdout, stderr) 
