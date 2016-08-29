@@ -1,6 +1,6 @@
 module.exports = {
     tor: {
-        host: '127.0.0.1', port: 9150
+        host: '127.0.0.1', port: 9050
     },
     app: {
         port: 3040,
