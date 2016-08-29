@@ -1,42 +1,14 @@
-var torRequest = require("torrequest");
-var config = require('config');
-var exec = require('child_process').exec;
-console.log('HOSTNAME: ' + config.util.getEnv('HOSTNAME'));
-
-function restartT(){
-exec(config.app.restartScript, function( error, stdout, stderr) 
-   {
-       if ( error != null ) {
-            console.log(stderr);        
-       }       
-   });
-}
-
-
-function torSearch(url){
-    torRequest({
-    uri: url,
-    torHost: config.tor.host,
-    torPort: config.tor.port
-    }, function(err,res,doc){
-    if(err) return console.log("Error: "+err);
-        var regexp = /<title>+(.*)+<\/title>/;
-        var m = doc.match(regexp);
-        console.log(m[1])  
-        if(/CloudFlare/.test(m[1])){
-            console.log('cloudflare')
-            restartT()
-            setTimeout(()=>{
-                console.log('another')
-                torSearch(url)
-            },4000)
-        }else{
-            console.log(doc)
-        }
-    
-    console.log("Document fetched successfully...");
-    });
-
-}
+var torSearch = require('./server/libs/torSearch')
 
 torSearch('http://thepiratebay.org')
+
+
+var express = require('express');
+var app = express();
+var config = require('config');
+
+app.use(express.static('client'));
+
+app.listen(config.app.port,function(){
+    console.log('listening: ' + config.app.port)
+})
