@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "snyk-protect": "snyk protect",
-    "prepare": "npm run snyk-protect"
+    "prepare": "npm run snyk-protect",
+    "prepublish": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -22,7 +23,7 @@
     "config": "^1.21.0",
     "express": "^4.14.0",
     "torrequest": "0.0.2",
-    "snyk": "^1.88.0"
+    "snyk": "^1.189.0"
   },
   "snyk": true
 }
