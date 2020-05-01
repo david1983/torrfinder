@@ -22,7 +22,7 @@
     "config": "^1.21.0",
     "express": "^4.14.0",
     "torrequest": "0.0.2",
-    "snyk": "^1.88.0"
+    "snyk": "^1.316.1"
   },
   "snyk": true
 }
